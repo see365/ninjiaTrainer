@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/index.js"></script>
+
+    <script>
+        var User={
+            values:['buer','see365','doer','buer2016']
+        };
+        var ninja=new Ninja();
+
+        ninja.addMethod(User,'find',function(){
+            return this.values;
+        });
+
+        ninja.addMethod(User,'find',function(name){
+            var res=[];
+            for(var i=0;i<this.values.length;i++){
+                if(this.values[i].indexOf(name)>-1){
+                    res.push(this.values[i]);
+                }
+            }
+            return res;
+        });
+
+        ninja.addMethod(User,'find',function(start,last){
+           var res=this.values.slice(start,last)
+            return res;
+        });
+
+        var res3=User.find(2,3);
+        var res2=User.find('buer');
+        var res=User.find();
+
+        console.log(res);
+        console.log(res2);
+        console.log(res3);
+
+    </script>
+</head>
+<body>
+<h2>函数重载</h2>
+
+
+
+</body>
+</html>
